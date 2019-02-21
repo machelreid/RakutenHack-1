@@ -25,6 +25,16 @@ firebase.initializeApp();
 
 var database = firebase.database();
 
+// What do I say about this piece of code?
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    console.log(user);
+    console.log(firebase.auth().currentUser)
+  } else {
+    console.log("No one signed in.");
+  }
+});
+
 export class Login_0 extends React.Component {
 
   static propTypes = {
@@ -99,7 +109,7 @@ export class Login_0 extends React.Component {
   };
 
   onSignUpButtonPressed = () => {
-    this.props.navigation.navigate('SignUp_3_picture');
+    this.props.navigation.navigate('SignUp_0_initial');
   };
 
   render = () => (
@@ -125,7 +135,7 @@ export class Login_0 extends React.Component {
           style={styles.save}
           rkType='large'
           onPress={this.onDummyButtonPressed}
-          text='DUMMY'
+          text='DEMO'
         />
         <GradientButton
           style={styles.save}
